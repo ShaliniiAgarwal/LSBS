@@ -7,10 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.LSB.Entity.Persons;
 public interface PersonsRepo extends JpaRepository<Persons,Integer> {
-	 @Query(value=	"SELECT COUNT (status)  FROM Person WHERE status='active'",nativeQuery=true)
+	 @Query(value="SELECT COUNT(*) FROM person WHERE status='active'",nativeQuery=true)
 	int countper();
-   /* @Query(value="SELECT checkout FROM Persons",nativeQuery=true)
-	Date checkout();*/
+  
 	 @Query(value="SELECT checkout FROM Person",nativeQuery=true)
 	 List<Date> checkout();
 
